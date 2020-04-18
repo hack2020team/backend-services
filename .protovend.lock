@@ -1,7 +1,7 @@
 ---
 imports:
   - branch: master
-    commit: 5c372173d2e2e44143f43820c6ac344dd71d3a6e
+    commit: e9a08da8efcd6b05a367d1e18830a706706b8f52
     url: "git@github.com:hack2020team/headpose-service.git"
 min_protovend_version: 4.0.0
-updated: "2020-04-18 19:24:49.851610"
+updated: "2020-04-18 20:10:05.838250"

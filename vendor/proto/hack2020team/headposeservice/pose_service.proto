@@ -15,8 +15,10 @@ message Frame {
 
 message PoseResponse {
   uint64 frame_identifier = 1;
+
+  repeated float pose = 2;
 }
 
 service HeadPoseApi {
-  rpc GetPose(stream Frame) returns (stream PoseResponse) {}
+  rpc GetPose(Frame) returns (PoseResponse) {}
 }
