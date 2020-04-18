@@ -1,0 +1,10 @@
+[workspace]
+
+members = [
+  "messaging",
+  "rtcpeer"
+]
+
+[profile.release]
+lto = true
+
