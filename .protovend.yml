@@ -1,0 +1,5 @@
+---
+min_protovend_version: 4.0.0
+vendor:
+  - url: "git@github.com:hack2020team/headpose-service.git"
+    branch: master
