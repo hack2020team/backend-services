@@ -686,6 +686,7 @@ dependencies = [
  "prost 0.6.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio 0.2.18 (registry+https://github.com/rust-lang/crates.io-index)",
  "tonic 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tonic-build 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "tonic-health 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "tower 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "tungstenite 0.10.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1088,10 +1089,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "winapi 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
-
-[[package]]
-name = "rtcpeer"
-version = "0.1.0"
 
 [[package]]
 name = "rustc-demangle"

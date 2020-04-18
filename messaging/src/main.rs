@@ -1,14 +1,10 @@
 #[macro_use] extern crate failure;
-#[macro_use] extern crate lazy_static;
-#[macro_use] extern crate log;
 
 mod ws_service;
+mod headpose_service;
 
 use env_logger::Env;
 use failure::Error;
-use futures::future;
-use std::collections::HashMap;
-use tonic::transport::{Server as TonicServer};
 use tokio::net::TcpListener;
 use ws_service::WebSocketService;
 

@@ -25,3 +25,7 @@ tonic = "0.2.0"
 tonic-health = "0.1"
 tower = "0.3"
 image = "0.23.3"
+
+
+[build-dependencies]
+tonic-build = { version = "*", features = ["prost"] }

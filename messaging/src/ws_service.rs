@@ -19,14 +19,14 @@ impl WebSocketService {
         if let Err(e) = self.handle_connection(peer, Box::pin(TokioAdapter(stream))).await {
             match e {
                 Error::ConnectionClosed | Error::Protocol(_) | Error::Utf8 => (),
-                err => error!("Error accepting connection: {}", err),
+                err => log::error!("Error accepting connection: {}", err),
             }
         }
     }
 
     async fn handle_connection<T: AsyncRead + AsyncWrite + Unpin>(&self, peer: SocketAddr, stream: T) -> Result<()> {
         let mut ws_stream = accept_async(stream).await.expect("Failed to accept");
-        info!("accepted new Socket connection: {}", peer);
+        log::info!("accepted new Socket connection: {}", peer);
 
         while let Some(msg) = ws_stream.next().await {
             let msg = msg?;
@@ -35,7 +35,7 @@ impl WebSocketService {
                    if let Ok(url) = data_url::DataUrl::process(data) {
                        match url.decode_to_vec() {
                            Err(e) => {
-                               error!("could not decode base64 message {:?}", e);
+                               log::error!("could not decode base64 message {:?}", e);
                                None
                            },
                            Ok((bytes, _)) => {
@@ -43,7 +43,7 @@ impl WebSocketService {
                            }
                        } 
                    } else {
-                       error!("invalid data url");
+                       log::error!("invalid data url");
                        None
                    }
 
@@ -58,10 +58,10 @@ impl WebSocketService {
 
             if let Some(bytes) = frame_bytes {
                 if let Ok(_) = JpegDecoder::new(bytes.as_slice()) {
-                    info!("valid jpeg image");
+                    log::info!("valid jpeg image");
                     // WOOOOOHHHHH assign an ID and ship it off to the ML workers :ok:
                 } else {
-                    error!("invalid jpeg image");
+                    log::error!("invalid jpeg image");
                 }
             }
         }
@@ -77,7 +77,7 @@ impl WebSocketService {
                     this.accept_connection(peer, stream).await;
                 });
             } else {
-                error!("peer did not have a peer address");
+                log::error!("peer did not have a peer address");
             }
 
         }
