@@ -1,9 +1,27 @@
 [package]
 name = "messaging"
 version = "0.1.0"
-authors = ["samgiles <sam.giles@citymapper.com>"]
+authors = ["samgiles <sam@samgil.es>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-tungstenite = { version = "*", features = ["tokio-runtime"] }
+base64 = "0.12"
+data-url = "0.1"
+tungstenite = "*"
+env_logger = "0.7"
+failure = "0.1.7"
+futures = "0.3"
+futures-util = { version = "0.3", default-features = false, features = ["async-await", "sink", "std"] }
+futures-io = { version = "0.3", default-features = false, features = ["std"] }
+hyper = { version = "0.13.4" }
+lazy_static = "1.4.0"
+log = "0.4"
+prost = "0.6"
+tokio = { version = "0.2", features = ["rt-threaded", "time", "stream", "fs", "macros", "uds"] }
+tonic = "0.2.0"
+tonic-health = "0.1"
+tower = "0.3"
+image = "0.23.3"
